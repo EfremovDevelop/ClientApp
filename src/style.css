@@ -38,10 +38,6 @@ button:focus {
   background-position: center;
 }
 
-#preloader-none {
-  opacity: 0;
-}
-
 #no-scroll {
   overflow: hidden;
   height: 100vh;
@@ -518,6 +514,7 @@ button:focus {
 
 .btn-primary {
   color: #fff !important;
+  opacity: 0.9 !important;
   background-color: #623686 !important;
   border-color: #623686 !important;
 }
@@ -535,7 +532,7 @@ button:focus {
   color: white !important;
   font-size: 2.3em !important;
   font-weight: 500 !important;
-  padding-top: 10px !important;
+  padding-top: 5px !important;
 }
 
 /* --------- */
@@ -729,6 +726,7 @@ button:focus {
   line-height: 1.4em !important;
   background-color: #934cce5e !important;
   padding: 0.25rem 1.1rem !important;
+  opacity: 0.9 !important;
   vertical-align: middle !important;
   text-align: center !important;
 }

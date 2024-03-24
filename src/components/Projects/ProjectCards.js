@@ -2,29 +2,46 @@ import React from "react";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import { CgWebsite } from "react-icons/cg";
-import { BsGithub } from "react-icons/bs";
 
 function ProjectCards(props) {
+  const handleUpdateProject = () => {
+    if (props.onUpdateProject) {
+      props.onUpdateProject(props.id);
+    }
+  };
+
+  const handleDeleteProject = () => {
+    if (props.onDeleteProject){
+      props.onDeleteProject(props.id);
+    }
+  };
+
   return (
     <Card className="project-card-view">
-      <Card.Img variant="top" src={props.imgPath} alt="card-img" />
       <Card.Body>
-        <Card.Title>{props.title}</Card.Title>
+        <Card.Title>{props.name}</Card.Title>
         <Card.Text style={{ textAlign: "justify" }}>
           {props.description}
         </Card.Text>
-
-        {/* If the component contains Demo link and if it's not a Blog then, it will render the below component  */}
-
-        {!props.isBlog && props.demoLink && (
+        { props.issues && (
           <Button
             variant="primary"
-            href={props.demoLink}
+            href={props.issues}
             target="_blank"
             style={{ marginLeft: "10px" }}
           >
             <CgWebsite /> &nbsp;
             {"Issues"}
+          </Button>
+        )}
+        {props.onUpdateProject && (
+          <Button variant="primary" onClick={handleUpdateProject} style={{ marginLeft: "10px" }}>
+            Update
+          </Button>
+        )}
+        {props.onDeleteProject && (
+          <Button variant="primary" onClick={handleDeleteProject} style={{ marginLeft: "10px" }}>
+            Delete
           </Button>
         )}
       </Card.Body>
