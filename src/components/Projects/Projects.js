@@ -136,7 +136,6 @@ function Projects() {
                 id={project.id}
                 name={project.name}
                 description={project.description}
-                issues={"http://localhost:3000"}
                 onUpdateProject = {handleUpdateProject}
                 onDeleteProject = {handleDeleteProject}
               />

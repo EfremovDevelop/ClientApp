@@ -2,6 +2,7 @@ import React from "react";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import { CgWebsite } from "react-icons/cg";
+import { useNavigate } from 'react-router-dom';
 
 function ProjectCards(props) {
   const handleUpdateProject = () => {
@@ -16,6 +17,11 @@ function ProjectCards(props) {
     }
   };
 
+  const navigate = useNavigate();
+  const showProjectIssues = () => {
+    navigate(`/project/${props.id}/issue`);
+  };
+
   return (
     <Card className="project-card-view">
       <Card.Body>
@@ -23,13 +29,8 @@ function ProjectCards(props) {
         <Card.Text style={{ textAlign: "justify" }}>
           {props.description}
         </Card.Text>
-        { props.issues && (
-          <Button
-            variant="primary"
-            href={props.issues}
-            target="_blank"
-            style={{ marginLeft: "10px" }}
-          >
+        { props.id && (
+          <Button variant="primary" onClick={showProjectIssues} style={{ marginLeft: "10px" }}>
             <CgWebsite /> &nbsp;
             {"Issues"}
           </Button>
